@@ -17,6 +17,7 @@
     );
     sidebar = document.querySelector("#sidebar-main");
     sidebarInfo = res.sidebar;
+    console.log(sidebarInfo);
     for (let i = 1; i < 6; i++) {
         if (i !== 3) {
             sidebar.insertAdjacentHTML('beforeend', /*html*/`
