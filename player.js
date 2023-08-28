@@ -16,6 +16,7 @@
     </div>`
     );
     sidebar = document.querySelector("#sidebar-main");
+    console.log(sidebarInfo);
     sidebarInfo = res.sidebar;
     for (let i = 1; i < 6; i++) {
         if (i !== 3) {
