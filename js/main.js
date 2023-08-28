@@ -1,6 +1,6 @@
 (async ( ) => {
     const sidebar = document.querySelector("#sidebar-main");
-    let peticion = await fetch(`../json/data.json`);
+    let peticion = await fetch(`json/data.json`);
     let res = await peticion.json();
     sidebarInfo = res.sidebar;
     console.log(sidebarInfo);
