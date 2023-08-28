@@ -1,4 +1,4 @@
-(async () => {
+let hola = async () => {
     const sidebar = document.querySelector("#sidebar-main");
     try {
         let peticion = await fetch(`json/data.json`); // Ruta relativa al archivo JSON
@@ -26,7 +26,7 @@
     } catch (error) {
         console.error("Error fetching data:", error);
     }
-})();
-
+};
+hola();
 
 console.log("JAJAJAJ")
