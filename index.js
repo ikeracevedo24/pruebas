@@ -16,11 +16,11 @@
     </div>`
     );
     sidebar = document.querySelector("#sidebar-main");
-    console.log(sidebar);
+    console.log(sidebar); // No se por que pero en mis pruebas si no pongo estos console log no sale la barra xD
     sidebarInfo = res.sidebar;
-    console.log(sidebarInfo);
+    console.log(sidebarInfo);// No se por que pero en mis pruebas si no pongo estos console log no sale la barra xD
     for (let i = 1; i < 6; i++) {
-        console.log(i)
+        console.log(i) // No se por que pero en mis pruebas si no pongo estos console log no sale la barra xD
         if (i !== 3) {
             sidebar.insertAdjacentHTML('beforeend', /*html*/`
                 <div class="side${i} sidebar-box">
