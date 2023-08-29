@@ -122,3 +122,53 @@ input.addEventListener('keydown', function (event) {
         window.location.href = "player.html?value="+input;
     }
 });
+
+
+
+(async () => {
+    let main = document.querySelector("#videos");
+    let peticion = await fetch("channelvideos.json");
+    let res = await peticion.json();
+    let videos = res.contents;
+    console.log(videos);
+    main.innerHTML = '';
+    main.insertAdjacentHTML("beforeend", /*html*/`
+        <div id="videos-container" class="videos-container">
+            ${videos.map(value => {
+                if (value.video && value.video.movingThumbnails) { // Verificar si el objeto tiene una clave "video"
+                    return /*html*/`
+                        <a href="player.html?value=${value.video.videoId}">
+                            <img class="thumbnail" src="${(value.video.thumbnails[0]).url}" alt="thumbnail">
+                            
+                            <img class="movthumbnail" src="${(value.video.movingThumbnails[0]).url}" alt="movthumbnail">
+                            <div class="video-info">
+                                <div class="video-title">
+                                    ${value.video.title}
+                                </div>
+                                <div class="video-channel">CreativeCode</div>
+                                <div class="video-little">
+                                    <div class="video-views">${value.video.stats.views} views</div>
+                                    <div class="video-date">${value.video.publishedTimeText}</div>
+                                </div>
+                            </div>
+                        </a>`;
+                } else { // Verificar si el objeto tiene una clave "video"
+                    return /*html*/`
+                        <a href="player.html?value=${value.video.videoId}">
+                        <img class="thumbnail" src="${(value.video.thumbnails[0]).url}" alt="thumbnail">
+                        <div class="video-info">
+                            <div class="video-title">
+                                ${value.video.title}
+                            </div>
+                            <div class="video-channel">CreativeCode</div>
+                            <div class="video-little">
+                                <div class="video-views">${value.video.stats.views} views</div>
+                                <div class="video-date">${value.video.publishedTimeText}</div>
+                            </div>
+                        </div>
+                        </a>`;
+                }
+            }).join('')}
+        </div>
+    `);
+})();
